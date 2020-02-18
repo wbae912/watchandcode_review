@@ -7,7 +7,6 @@ var todoList = {
     } else {
       console.log('My Todos:');
       for(let i = 0; i < this.todos.length; i++) {
-        // console.log(this.todos[i].todoText);
         if(this.todos[i].completed) {
           console.log('(x)', this.todos[i].todoText);
         } else {
@@ -58,17 +57,29 @@ var todoList = {
   }
 };
 
-// 1. We want to get access to the display todos button.
-var displayTodosButton = document.getElementById('displayTodosButton');
+// // 1. We want to get access to the display todos button.
+// var displayTodosButton = document.getElementById('displayTodosButton');
 
-//2. We want to run displayTodos method, when someone clicks the display todos button.
+// //2. We want to run displayTodos method, when someone clicks the display todos button.
 
-displayTodosButton.addEventListener('click', function() {
-  todoList.displayTodos();
-});
+// displayTodosButton.addEventListener('click', function() {
+//   todoList.displayTodos();
+// });
 
-var toggleAllButton = document.getElementById('toggleAllButton');
+// var toggleAllButton = document.getElementById('toggleAllButton');
 
-toggleAllButton.addEventListener('click', function() {
-  todoList.toggleAll();
-});
+// toggleAllButton.addEventListener('click', function() {
+//   todoList.toggleAll();
+// });
+
+
+
+// Refactored code of lines 60-73
+var handlers = {
+  displayTodos: function() {
+    todoList.displayTodos();
+  },
+  toggleAll: function() {
+    todoList.toggleAll();
+  }
+}

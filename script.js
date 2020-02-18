@@ -79,9 +79,6 @@ var handlers = {
   displayTodos: function() {
     todoList.displayTodos();
   },
-  toggleAll: function() {
-    todoList.toggleAll();
-  },
   addTodo: function() {
     var addTodoTextInput = document.getElementById('addTodoTextInput');
 
@@ -107,5 +104,8 @@ var handlers = {
 
     todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
     toggleCompletedPositionInput.value = '';
+  },
+  toggleAll: function() {
+    todoList.toggleAll();
   }
 };

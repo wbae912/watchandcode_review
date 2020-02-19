@@ -93,19 +93,23 @@ var view = {
   displayTodos: function() {
     var todosUl = document.querySelector('ul');
     todosUl.innerHTML = '';
-    for(var i = 0; i < todoList.todos.length; i++) {
+
+    todoList.todos.forEach(function(todo, index) {
       var todoLi = document.createElement('li');
 
-      if(todoList.todos[i].completed) {
-        todoLi.textContent = `(x) ${todoList.todos[i].todoText}`;
+      if(todo.completed) {
+        todoLi.textContent = `(x) ${todo.todoText}`;
       } else {
-        todoLi.textContent = `( ) ${todoList.todos[i].todoText}`;
+        todoLi.textContent = `( ) ${todo.todoText}`;
       }
 
-      todoLi.id = i;
+      todoLi.id = index;
       todoLi.appendChild(this.createDeleteButton());
       todosUl.appendChild(todoLi);
-    }
+    }, this);
+    /* On line 122, we passed an argument called "this" in the forEach...THIS IS OFFICIAL DOCUMENTATION (MDN)
+       It allows us to reference the object that the HoF is contained within
+       Official doc example: array.forEach(callback, this) */
   },
   createDeleteButton: function() {
     var deleteButton = document.createElement('button');

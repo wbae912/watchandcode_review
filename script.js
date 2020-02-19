@@ -105,6 +105,7 @@ var view = {
       } else {
         todoLi.textContent = `( ) ${todoList.todos[i].todoText}`;
       }
+      todoLi.appendChild(this.createDeleteButton());
       todosUl.appendChild(todoLi);
     }
   },
